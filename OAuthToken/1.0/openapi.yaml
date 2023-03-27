@@ -1,0 +1,22 @@
+---
+openapi: "3.0.1"
+info:
+  title: "OAuthToken"
+  version: "1.0"
+servers:
+- url: "http://localhost:2160/OAuthToken/1.0"
+paths:
+  /:
+    post:
+      tags: []
+      summary: ""
+      description: ""
+      operationId: ""
+      parameters: []
+      responses:
+        200:
+          description: "sample response"
+          content:
+            text/plain:
+              schema: {}
+components: {}

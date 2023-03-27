@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<json2XMLConfiguration policyName="JSON2XML" policyType="TRANSFORMATION">
+    <policyInstanceName>jsonToXml</policyInstanceName>
+    <rule>
+        <Rule>PARAMETER[isJson]~EQUALS~no</Rule>
+    </rule>
+    <expandArrayNameToChildElements>true</expandArrayNameToChildElements>
+    <jsonTypesAsAttributes>false</jsonTypesAsAttributes>
+</json2XMLConfiguration>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<verifyAccessTokenConfiguration policyName="OAUTH_VERIFY_TOKEN" policyType="SECURITY">
+    <policyInstanceName>OAuthVerify</policyInstanceName>
+    <parameterStyles>QUERY</parameterStyles>
+</verifyAccessTokenConfiguration>
