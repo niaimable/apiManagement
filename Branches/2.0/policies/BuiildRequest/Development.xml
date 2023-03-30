@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assignMessageConfiguration policyName="BUILD_MESSAGE" policyType="TRANSFORMATION">
+    <policyInstanceName>BuiildRequest</policyInstanceName>
+    <addMessageDetailsConfiguration>
+        <addPayload>false</addPayload>
+        <FormParams/>
+        <headers/>
+        <QueryParams/>
+    </addMessageDetailsConfiguration>
+    <copyMessageDetailsConfiguration>
+        <copyAllFormParams>false</copyAllFormParams>
+        <copyAllHeaders>false</copyAllHeaders>
+        <copyAllQueryParams>false</copyAllQueryParams>
+        <copyPayload>false</copyPayload>
+    </copyMessageDetailsConfiguration>
+    <createNew>false</createNew>
+    <ignoreUnresVar>false</ignoreUnresVar>
+    <messageFormat>JSON</messageFormat>
+    <removeMessageDetailsConfiguration>
+        <clearPayload>false</clearPayload>
+        <removeAllFormParams>false</removeAllFormParams>
+        <removeAllHeaders>true</removeAllHeaders>
+        <removeAllQueryParams>false</removeAllQueryParams>
+    </removeMessageDetailsConfiguration>
+    <scopeOverride></scopeOverride>
+    <setMessageDetailsConfiguration>
+        <FormParams/>
+        <headers/>
+        <QueryParams>
+            <Entry>
+                <Key>address</Key>
+                <Value>{StreetAddress},{City},{State},{ZipCode}</Value>
+            </Entry>
+        </QueryParams>
+        <setPayload>false</setPayload>
+    </setMessageDetailsConfiguration>
+    <varRefPrefix>{</varRefPrefix>
+    <varRefSuffix>}</varRefSuffix>
+</assignMessageConfiguration>

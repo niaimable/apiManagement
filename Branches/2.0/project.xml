@@ -3,23 +3,32 @@
     <properties/>
     <resources>
         <entry>
-            <key>DefaultResource</key>
+            <key>branches</key>
             <value>
                 <Policies>
                     <Entry>
                         <PolicyScope>PROXY_REQUEST</PolicyScope>
-                        <PolicyID>OAuthVerify</PolicyID>
-                    </Entry>
-                    <Entry>
-                        <PolicyScope>PROXY_REQUEST</PolicyScope>
-                        <PolicyID>QuotaPolicy</PolicyID>
+                        <PolicyID>Callout</PolicyID>
                     </Entry>
                     <Entry>
                         <PolicyScope>PROXY_RESPONSE</PolicyScope>
-                        <PolicyID>jsonToXml</PolicyID>
+                        <PolicyID>BuildResponse</PolicyID>
+                    </Entry>
+                    <Entry>
+                        <PolicyScope>TARGET_REQUEST</PolicyScope>
+                        <PolicyID>ParseServiceResponse</PolicyID>
+                    </Entry>
+                    <Entry>
+                        <PolicyScope>TARGET_REQUEST</PolicyScope>
+                        <PolicyID>BuiildRequest</PolicyID>
+                    </Entry>
+                    <Entry>
+                        <PolicyScope>TARGET_RESPONSE</PolicyScope>
+                        <PolicyID>ParserTargetResponse</PolicyID>
                     </Entry>
                 </Policies>
                 <allowChildPaths>false</allowChildPaths>
+                <basePath>{branchId}/location</basePath>
                 <dummyPolicyConfigurationsForJson>
                     <entry>
                         <key>PROXY_REQUEST</key>
@@ -27,6 +36,14 @@
                     </entry>
                     <entry>
                         <key>PROXY_RESPONSE</key>
+                        <value/>
+                    </entry>
+                    <entry>
+                        <key>TARGET_REQUEST</key>
+                        <value/>
+                    </entry>
+                    <entry>
+                        <key>TARGET_RESPONSE</key>
                         <value/>
                     </entry>
                 </dummyPolicyConfigurationsForJson>
@@ -38,7 +55,7 @@
                 </endpoints>
                 <forwardBasePath>false</forwardBasePath>
                 <loadBalancingStrategy>ROUND_ROBIN</loadBalancingStrategy>
-                <resourceID>DefaultResource</resourceID>
+                <resourceID>branches</resourceID>
                 <streamingScope>NONE</streamingScope>
                 <targetRules>
                     <Entry>
@@ -54,89 +71,83 @@
     </resources>
     <policyIDs>
         <entry>
-            <key>apiKeyPolicy</key>
+            <key>BuiildRequest</key>
+            <value>BUILD_MESSAGE</value>
+        </entry>
+        <entry>
+            <key>build</key>
+            <value>BUILD_MESSAGE</value>
+        </entry>
+        <entry>
+            <key>BuildResponse</key>
+            <value>BUILD_MESSAGE</value>
+        </entry>
+        <entry>
+            <key>Callout</key>
+            <value>SERVICE_CALLOUT</value>
+        </entry>
+        <entry>
+            <key>ParserTargetResponse</key>
+            <value>ASSIGN_VARIABLE</value>
+        </entry>
+        <entry>
+            <key>ParseServiceResponse</key>
+            <value>ASSIGN_VARIABLE</value>
+        </entry>
+        <entry>
+            <key>servicecallout</key>
+            <value>SERVICE_CALLOUT</value>
+        </entry>
+        <entry>
+            <key>verify</key>
             <value>VERIFY_API_KEY</value>
         </entry>
         <entry>
-            <key>QuotaPolicy</key>
-            <value>QUOTA</value>
-        </entry>
-        <entry>
-            <key>OAuthVerify</key>
-            <value>OAUTH_VERIFY_TOKEN</value>
-        </entry>
-        <entry>
-            <key>jsonToXml</key>
-            <value>JSON2XML</value>
+            <key>ipfilter</key>
+            <value>IP_BASED_FILTER</value>
         </entry>
     </policyIDs>
     <ProjectPolicies/>
     <dummyProjectPoliciesForJSON/>
-    <creationDate>2023/03/27 11:05:31</creationDate>
+    <creationDate>2022/09/20 13:54:00</creationDate>
     <includeVersionInPath>true</includeVersionInPath>
-    <lastModified>2023/03/28 12:32:40</lastModified>
+    <lastModified>2023/03/28 15:14:59</lastModified>
     <projectDocument>
-        <basePath>/empl/1.0</basePath>
-        <longDesc>this is a short description of employee Project, you will be asked to pass parameters as Api ke....</longDesc>
+        <basePath>/brachances2/2.0</basePath>
         <resourceDocs>
             <entry>
-                <key>DefaultResource</key>
+                <key>branches</key>
                 <value>
                     <customParams>
                         <entry>
-                            <key>access_token</key>
+                            <key>branchId</key>
                             <value>
-<description>The access token issued by Authorization server from Consumer Key and Consumer Secret</description>
-<name>access_token</name>
+<name>branchId</name>
 <required>true</required>
-<type>Query Param</type>
+<type>Path Param</type>
                             </value>
                         </entry>
                         <entry>
-                            <key>weight</key>
+                            <key>Content-Type</key>
                             <value>
-<defaultValue>1</defaultValue>
-<description>Parameter which defines the weight of a particular request.</description>
-<name>weight</name>
-<required>false</required>
-<type>Query Param</type>
-                            </value>
-                        </entry>
-                        <entry>
-                            <key>ApiKey</key>
-                            <value>
-<defaultValue>default</defaultValue>
-<description>Parameter which holds the key that needs to be verified.</description>
-<name>ApiKey</name>
+<defaultValue>multipart/form-data</defaultValue>
+<name>Content-Type</name>
 <required>true</required>
-<type>Query Param</type>
-                            </value>
-                        </entry>
-                        <entry>
-                            <key>empId</key>
-                            <value>
-<defaultValue>1</defaultValue>
-<description>Description</description>
-<name>empId</name>
-<required>false</required>
-<type>Query Param</type>
+<type>Header</type>
                             </value>
                         </entry>
                     </customParams>
-                    <longDesc>this is a short description of employee Project, you will be asked to pass parameters.</longDesc>
                     <method>GET</method>
                     <parameters/>
-                    <path>/</path>
-                    <shortDesc>this is a short description of employee Project</shortDesc>
+                    <path>{branchId}/location</path>
                 </value>
             </entry>
         </resourceDocs>
-        <shortDesc>this is a short description of employee Project</shortDesc>
         <status>ACTIVE</status>
-        <version>1.0</version>
+        <version>2.0</version>
     </projectDocument>
-    <projectID>employee</projectID>
-    <projectVersion>1.0</projectVersion>
+    <projectID>Branches</projectID>
+    <projectVersion>2.0</projectVersion>
     <proxyAsEndPoint>false</proxyAsEndPoint>
     <referredPolicies/>
     <releaseVersion>3.0</releaseVersion>
@@ -145,11 +156,11 @@
             <key>
                 <Rule>CONTEXT_VARIABLE[proxy.request.method]~EQUALS~GET</Rule>
             </key>
-            <value>DefaultResource</value>
+            <value>branches</value>
         </entry>
     </routingRules>
     <rule>
-        <Rule>CONTEXT_VARIABLE[api.project.context.path]~EQUALS~/empl and CONTEXT_VARIABLE[api.project.version]~EQUALS~1.0</Rule>
+        <Rule>CONTEXT_VARIABLE[api.project.context.path]~EQUALS~/brachances2 and CONTEXT_VARIABLE[api.project.version]~EQUALS~2.0</Rule>
     </rule>
     <status>ACTIVE</status>
     <traceEnabled>false</traceEnabled>
