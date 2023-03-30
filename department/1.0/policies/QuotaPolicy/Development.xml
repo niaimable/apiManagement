@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<quotaPolicyConfiguration policyName="QUOTA" policyType="TRAFFIC">
+    <policyInstanceName>QuotaPolicy</policyInstanceName>
+    <distributed>false</distributed>
+    <quotaHolder>
+        <defaultValue>1/1/minute</defaultValue>
+        <name>api.product.quota.allowed</name>
+        <type>CONTEXT_VARIABLE</type>
+    </quotaHolder>
+    <quotaIdentifierHolder>
+        <defaultValue>default</defaultValue>
+        <name>api.developer.id</name>
+        <type>CONTEXT_VARIABLE</type>
+    </quotaIdentifierHolder>
+    <quotaPolicyType>ADVANCED</quotaPolicyType>
+    <rejectIfQuotaIdentifierNotFound>false</rejectIfQuotaIdentifierNotFound>
+    <sync>true</sync>
+    <syncTime>0</syncTime>
+    <weightHolder>
+        <defaultValue>1</defaultValue>
+        <name>weight</name>
+        <type>PARAMETER</type>
+    </weightHolder>
+</quotaPolicyConfiguration>

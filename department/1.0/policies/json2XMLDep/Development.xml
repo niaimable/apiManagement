@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<json2XMLConfiguration policyName="JSON2XML" policyType="TRANSFORMATION">
+    <policyInstanceName>json2XMLDep</policyInstanceName>
+    <expandArrayNameToChildElements>true</expandArrayNameToChildElements>
+    <jsonTypesAsAttributes>false</jsonTypesAsAttributes>
+</json2XMLConfiguration>
